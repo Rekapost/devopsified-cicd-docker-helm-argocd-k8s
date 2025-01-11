@@ -1,0 +1,98 @@
+# CICD using GitHub actions
+
+name: CI/CD     # workflow name 
+
+# Exclude the workflow to run on changes to the helm chart
+# provide an action when github has to run the pipeline automatically 
+# for jenkins it is buildtriggers, for github it is workflow, when it need to run the workflow 
+on:
+  push:                         #issue creation / pull request 
+    branches:
+      - master
+    paths-ignore:             # update on theses folders can be ignored, no need to run cicd pipline 
+      - 'helm/**'
+      - 'k8s/**'
+      - 'README.md'
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest                #VM or containers
+
+    steps:
+    - name: Checkout repository            # checkout source code 
+      uses: actions/checkout@v4
+
+    - name: Set up Go 1.22                 # install golang 
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.22
+
+    - name: Build                          # rub the build command
+      run: go build -o go-web-app
+
+    - name: Test                           # test the unit test case 
+      run: go test ./...
+  
+  code-quality:
+    runs-on: ubuntu-latest             # to execute on runner 
+
+    steps:
+    - name: Checkout repository           # checkout repository
+      uses: actions/checkout@v4
+
+    - name: Run golangci-lint                   #
+      uses: golangci/golangci-lint-action@v6
+      with:
+        version: v1.56.2
+  
+  push:                                    # build and push docker image 
+    runs-on: ubuntu-latest
+
+    needs: build
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Docker Buildx                  #
+      uses: docker/setup-buildx-action@v1
+
+    - name: Login to DockerHub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: Build and Push action
+      uses: docker/build-push-action@v6
+      with:
+        context: .
+        file: ./Dockerfile
+        push: true
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/go-web-app:${{github.run_id}}
+
+  update-newtag-in-helm-chart:
+    runs-on: ubuntu-latest
+
+    needs: push
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.TOKEN }}                  # github token
+
+    - name: Update tag in Helm chart                        #commit the change
+      run: |
+        sed -i 's/tag: .*/tag: "${{github.run_id}}"/' helm/go-web-app-chart/values.yaml              
+
+    - name: Commit and push changes               #commit and push to github 
+      run: |
+        git config --global user.email "rekaharisri@gmail.com"
+        git config --global user.name "Reka"
+        git add helm/go-web-app-chart/values.yaml
+        git commit -m "Update tag in Helm chart"
+        git push
+
+
