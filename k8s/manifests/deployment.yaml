@@ -20,4 +20,4 @@ spec:
         image: reka83/go-web-app:v1
         imagePullPolicy: Always
         ports:
-        - containerPort: 8081
+        - containerPort: 8082
