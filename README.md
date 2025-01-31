@@ -40,13 +40,10 @@ To get started with the project:
    cd devopsified-cicd-docker-helm-argocd-k8s
 
 Install Docker:
-
 Follow the official Docker installation guide.
-
 Verify the installation:
 
-bash
-Copy
+```bash
 docker --version
 Install Helm:
 
@@ -54,8 +51,7 @@ Follow the Helm installation guide.
 
 Verify the installation:
 
-bash
-Copy
+```bash
 helm version
 Set up Kubernetes:
 
@@ -63,8 +59,7 @@ Use Minikube for a local Kubernetes cluster. Follow the Minikube installation gu
 
 Verify the setup:
 
-bash
-Copy
+```bash
 kubectl version
 Install ArgoCD:
 
@@ -72,27 +67,23 @@ Follow the ArgoCD installation guide.
 
 Verify the installation:
 
-bash
-Copy
+```bash
 argocd version
 Usage
 Building Docker Image
 To build the Docker image for your application:
 
-bash
-Copy
+```bash
 docker build -t <your_image_name>:<tag> .
 Deploying with Helm
 Use Helm to install the application on your Kubernetes cluster:
 
-bash
-Copy
+```bash
 helm install <release_name> ./helm
 Syncing with ArgoCD
 Once the application is deployed, you can use ArgoCD to manage the deployment:
 
-bash
-Copy
+```bash
 argocd app sync <app_name>
 Configuration
 Docker Configuration
@@ -118,20 +109,17 @@ Fork the repository.
 
 Create a new branch:
 
-bash
-Copy
+```bash
 git checkout -b feature-branch
 Make your changes.
 
 Commit your changes:
 
-bash
-Copy
+```bash
 git commit -am 'Add feature'
 Push to the branch:
 
-bash
-Copy
+```bash
 git push origin feature-branch
 Create a pull request.
 
@@ -139,7 +127,6 @@ Please ensure that your code adheres to the project's coding standards and inclu
 
 License
 This project is licensed under the MIT License - see the LICENSE file for details.
-
 
 
 You can copy and paste this markdown directly into your GitHub repository’s `README.md` file. It will
