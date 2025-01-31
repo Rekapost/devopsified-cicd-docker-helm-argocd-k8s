@@ -39,71 +39,60 @@ To get started with the project:
    git clone https://github.com/Rekapost/devopsified-cicd-docker-helm-argocd-k8s.git
    cd devopsified-cicd-docker-helm-argocd-k8s
 
+Install Docker:
 
-Install Docker
-Follow the official Docker installation guide for your operating system:
+Follow the official Docker installation guide.
+
+Verify the installation:
+
 bash
 Copy
-Edit
-# Link: https://docs.docker.com/get-docker/
-Verify Docker installation:
-bash
-Copy
-Edit
 docker --version
-Install Helm
-Install Helm by following the instructions here:
+Install Helm:
+
+Follow the Helm installation guide.
+
+Verify the installation:
+
 bash
 Copy
-Edit
-# Link: https://helm.sh/docs/intro/install/
-Verify Helm installation:
-bash
-Copy
-Edit
 helm version
-Set up Kubernetes
-You can use Minikube for a local Kubernetes cluster. Install it by following the guide here:
+Set up Kubernetes:
+
+Use Minikube for a local Kubernetes cluster. Follow the Minikube installation guide.
+
+Verify the setup:
+
 bash
 Copy
-Edit
-# Link: https://minikube.sigs.k8s.io/docs/
-Verify Kubernetes setup:
-bash
-Copy
-Edit
 kubectl version
-Install ArgoCD
-Follow the ArgoCD installation guide to deploy it on your Kubernetes cluster:
+Install ArgoCD:
+
+Follow the ArgoCD installation guide.
+
+Verify the installation:
+
 bash
 Copy
-Edit
-# Link: https://argo-cd.readthedocs.io/en/stable/getting_started/
-Verify ArgoCD installation:
-bash
-Copy
-Edit
 argocd version
-Build Docker Image
+Usage
+Building Docker Image
 To build the Docker image for your application:
 
 bash
 Copy
-Edit
 docker build -t <your_image_name>:<tag> .
-Deploy with Helm
+Deploying with Helm
 Use Helm to install the application on your Kubernetes cluster:
 
 bash
 Copy
-Edit
 helm install <release_name> ./helm
-Sync with ArgoCD
+Syncing with ArgoCD
 Once the application is deployed, you can use ArgoCD to manage the deployment:
 
 bash
 Copy
-Edit
 argocd app sync <app_name>
 Configuration
 Docker Configuration
@@ -119,36 +108,39 @@ Deployment
 Once your local setup is ready and the application is built, follow these steps to deploy your app:
 
 Commit and push your changes to your GitHub repository.
+
 ArgoCD will automatically detect changes in the repository and deploy the updated application to Kubernetes.
+
 Contributing
 We welcome contributions to improve and expand this project. To contribute:
 
 Fork the repository.
+
 Create a new branch:
+
 bash
 Copy
-Edit
 git checkout -b feature-branch
 Make your changes.
+
 Commit your changes:
+
 bash
 Copy
-Edit
 git commit -am 'Add feature'
 Push to the branch:
+
 bash
 Copy
-Edit
 git push origin feature-branch
 Create a pull request.
+
 Please ensure that your code adheres to the project's coding standards and includes proper test coverage where necessary.
 
 License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 
-Screenshots
-Below are some screenshots of the setup in action:
 
 You can copy and paste this markdown directly into your GitHub repository’s `README.md` file. It will
 ![image](https://github.com/user-attachments/assets/d8da2aeb-e4d0-4095-ba35-16313f47965d)
