@@ -35,101 +35,58 @@ Before getting started, ensure that you have the following tools installed:
 To get started with the project:
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/Rekapost/devopsified-cicd-docker-helm-argocd-k8s.git
-   cd devopsified-cicd-docker-helm-argocd-k8s
+```bash
+git clone https://github.com/Rekapost/devopsified-cicd-docker-helm-argocd-k8s.git
+cd devopsified-cicd-docker-helm-argocd-k8s
+```
 
-Install Docker:
+2. Install Docker:
 Follow the official Docker installation guide.
 Verify the installation:
-
 ```bash
 docker --version
-Install Helm:
+```
 
+3. Install Helm:
 Follow the Helm installation guide.
 
 Verify the installation:
-
 ```bash
 helm version
-Set up Kubernetes:
+```
 
-Use Minikube for a local Kubernetes cluster. Follow the Minikube installation guide.
+4. Set up Kubernetes:
+Use Minikube to create a local Kubernetes cluster. Follow the Minikube installation guide.
 
 Verify the setup:
-
 ```bash
 kubectl version
-Install ArgoCD:
+```
 
+5. Install ArgoCD:
 Follow the ArgoCD installation guide.
 
 Verify the installation:
-
 ```bash
 argocd version
-Usage
-Building Docker Image
-To build the Docker image for your application:
+```
 
+### Usage
+#### Building Docker Image
+To build the Docker image for your application:
 ```bash
 docker build -t <your_image_name>:<tag> .
-Deploying with Helm
-Use Helm to install the application on your Kubernetes cluster:
+```
 
+#### Deploying with Helm
+Use Helm to install the application on your Kubernetes cluster:
 ```bash
 helm install <release_name> ./helm
-Syncing with ArgoCD
-Once the application is deployed, you can use ArgoCD to manage the deployment:
+```
 
-```bash
-argocd app sync <app_name>
-Configuration
-Docker Configuration
-The Dockerfile in the root directory is used to build your Docker image. It is optimized for multi-stage builds to keep the image size minimal.
+#### Syncing with ArgoCD
+Once the application is deployed, you can utilize ArgoCD to manage the deployment:
 
-Helm Configuration
-The helm/ directory contains the Helm charts used for deploying applications on Kubernetes. To customize the configuration for your environment, edit the values.yaml file.
-
-ArgoCD Configuration
-The ArgoCD configuration ensures that all changes pushed to the Git repository are automatically reflected in the Kubernetes cluster. The repository configuration can be customized either in the ArgoCD UI or via the CLI.
-
-Deployment
-Once your local setup is ready and the application is built, follow these steps to deploy your app:
-
-Commit and push your changes to your GitHub repository.
-
-ArgoCD will automatically detect changes in the repository and deploy the updated application to Kubernetes.
-
-Contributing
-We welcome contributions to improve and expand this project. To contribute:
-
-Fork the repository.
-
-Create a new branch:
-
-```bash
-git checkout -b feature-branch
-Make your changes.
-
-Commit your changes:
-
-```bash
-git commit -am 'Add feature'
-Push to the branch:
-
-```bash
-git push origin feature-branch
-Create a pull request.
-
-Please ensure that your code adheres to the project's coding standards and includes proper test coverage where necessary.
-
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-
-You can copy and paste this markdown directly into your GitHub repository’s `README.md` file. It will
 ![image](https://github.com/user-attachments/assets/d8da2aeb-e4d0-4095-ba35-16313f47965d)
 ![image](https://github.com/user-attachments/assets/bf23e294-fc59-4192-93f9-f0c5db560615)
 ![image](https://github.com/user-attachments/assets/b72fc885-0f1e-426b-8ef4-107ce14b18df)
@@ -145,4 +102,4 @@ You can copy and paste this markdown directly into your GitHub repository’s `R
 ![image](https://github.com/user-attachments/assets/89063be4-5b51-4c13-9f14-df9ccbb18f6f)
 ![image](https://github.com/user-attachments/assets/80d295a0-2c1c-4233-817c-c22aafe11fb6)
 ![image](https://github.com/user-attachments/assets/7354ae87-00c7-429d-ac2e-3e0b68466e95)
-![image](https://github.com/user-attachments/assets/62a6869f-281c-4eef-8a40-1907a8540b7b)
+![image](https://github.com/user-attachments/assets/62a6869f-281c-4eef-8a40-1907a8540b7b)  
