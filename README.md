@@ -40,32 +40,65 @@ To get started with the project:
    cd devopsified-cicd-docker-helm-argocd-k8s
 
 
-Install Docker: Follow the official Docker installation guide for your operating system.
-
-Install Helm: Follow the official Helm installation guide here.
-
-Set up Kubernetes: Use Minikube for a local Kubernetes cluster. Install it by following the guide here.
-
-Install ArgoCD: Follow the ArgoCD installation guide to deploy it on your Kubernetes cluster.
-
-Usage
-After setting up the prerequisites, here’s how you can use the project:
-
-Building Docker Image
+Install Docker
+Follow the official Docker installation guide for your operating system:
+bash
+Copy
+Edit
+# Link: https://docs.docker.com/get-docker/
+Verify Docker installation:
+bash
+Copy
+Edit
+docker --version
+Install Helm
+Install Helm by following the instructions here:
+bash
+Copy
+Edit
+# Link: https://helm.sh/docs/intro/install/
+Verify Helm installation:
+bash
+Copy
+Edit
+helm version
+Set up Kubernetes
+You can use Minikube for a local Kubernetes cluster. Install it by following the guide here:
+bash
+Copy
+Edit
+# Link: https://minikube.sigs.k8s.io/docs/
+Verify Kubernetes setup:
+bash
+Copy
+Edit
+kubectl version
+Install ArgoCD
+Follow the ArgoCD installation guide to deploy it on your Kubernetes cluster:
+bash
+Copy
+Edit
+# Link: https://argo-cd.readthedocs.io/en/stable/getting_started/
+Verify ArgoCD installation:
+bash
+Copy
+Edit
+argocd version
+Build Docker Image
 To build the Docker image for your application:
 
 bash
 Copy
 Edit
 docker build -t <your_image_name>:<tag> .
-Deploying with Helm
+Deploy with Helm
 Use Helm to install the application on your Kubernetes cluster:
 
 bash
 Copy
 Edit
 helm install <release_name> ./helm
-Syncing with ArgoCD
+Sync with ArgoCD
 Once the application is deployed, you can use ArgoCD to manage the deployment:
 
 bash
@@ -93,19 +126,26 @@ We welcome contributions to improve and expand this project. To contribute:
 Fork the repository.
 Create a new branch:
 bash
+Copy
+Edit
 git checkout -b feature-branch
 Make your changes.
 Commit your changes:
 bash
+Copy
+Edit
 git commit -am 'Add feature'
 Push to the branch:
 bash
+Copy
+Edit
 git push origin feature-branch
 Create a pull request.
 Please ensure that your code adheres to the project's coding standards and includes proper test coverage where necessary.
 
 License
 This project is licensed under the MIT License - see the LICENSE file for details.
+
 
 Screenshots
 Below are some screenshots of the setup in action:
