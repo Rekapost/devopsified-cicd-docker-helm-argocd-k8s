@@ -75,16 +75,22 @@ After setting up the prerequisites, here’s how you can use the project:
 You can build the Docker image for your application:
 
 bash
+Copy
+Edit
 docker build -t <your_image_name>:<tag> .
 2. Deploy with Helm:
 Use Helm to install the application on your Kubernetes cluster:
 
 bash
+Copy
+Edit
 helm install <release_name> ./helm
 3. Sync with ArgoCD:
 Once the application is deployed, you can use ArgoCD to manage the deployment:
 
 bash
+Copy
+Edit
 argocd app sync <app_name>
 Configuration
 Docker Configuration
@@ -115,6 +121,13 @@ Please ensure that your code adheres to the project's coding standards and inclu
 License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
+yaml
+Copy
+Edit
+
+---
+
+You can copy and paste this markdown directly into your GitHub repository’s `README.md` file. It will
 ![image](https://github.com/user-attachments/assets/d8da2aeb-e4d0-4095-ba35-16313f47965d)
 ![image](https://github.com/user-attachments/assets/bf23e294-fc59-4192-93f9-f0c5db560615)
 ![image](https://github.com/user-attachments/assets/b72fc885-0f1e-426b-8ef4-107ce14b18df)
